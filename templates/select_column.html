@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Column</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Select a Column to Visualize</h2>
+        <form action="/show_bar_chart" method="post">
+            <input type="hidden" name="file_name" value="{{ file_name }}">
+            <div class="form-group">
+                <label for="column">Column</label>
+                <select class="form-control" id="column" name="column" required>
+                    {% for column in columns %}
+                    <option value="{{ column }}">{{ column }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Show Pie Chart</button>
+        </form>
+    </div>
+</body>
+</html>
